@@ -1,7 +1,8 @@
 ﻿Random random = new Random();
-int daysUntilExpiration = random.Next(12);
+int daysUntilExpiration = random.Next(15);
 
 // Your code goes here
+string expiresLater = $"Your subscription expires in {daysUntilExpiration} days.\nReminders begin in {((daysUntilExpiration - 10) == 1 ? "1 day." : $"{daysUntilExpiration - 10} days.")}";
 string expiresIn10Days = "Your subscription will expire soon. Renew now!";
 string expiresIn5Days = $"Your subscription expires in {daysUntilExpiration} days.\nRenew now and save 10%!";
 string expiresIn1Day = "Your subscription expires within a day!\nRenew now and save 20%!";
@@ -25,4 +26,7 @@ else if (daysUntilExpiration <= 10)
     Console.WriteLine(status);
 }
 else
-    Console.WriteLine(" ");
+{
+    status = expiresLater;
+    Console.WriteLine(status);
+}
